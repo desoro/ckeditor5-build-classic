@@ -54,7 +54,55 @@ module.exports = {
 		new webpack.BannerPlugin( {
 			banner: bundler.getLicenseBanner(),
 			raw: true
-		} )
+    } ),
+    new webpack.NormalModuleReplacementPlugin(
+      /paragraph\.svg/,
+      path.resolve(__dirname, 'icons', 'paragraph.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /heading1\.svg/,
+      path.resolve(__dirname, 'icons', 'h1.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /heading2\.svg/,
+      path.resolve(__dirname, 'icons', 'h2.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /bold\.svg/,
+      path.resolve(__dirname, 'icons', 'bold.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /italic\.svg/,
+      path.resolve(__dirname, 'icons', 'italic.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /underline\.svg/,
+      path.resolve(__dirname, 'icons', 'underline.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /strikethrough\.svg/,
+      path.resolve(__dirname, 'icons', 'strikethrough.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /link\.svg/,
+      path.resolve(__dirname, 'icons', 'link.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /image\.svg/,
+      path.resolve(__dirname, 'icons', 'image.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /media\.svg/,
+      path.resolve(__dirname, 'icons', 'media.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /emoji\.svg/,
+      path.resolve(__dirname, 'icons', 'emoji.svg')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /quote\.svg/,
+      path.resolve(__dirname, 'icons', 'blockquote.svg')
+    ),
 	],
 
 	module: {
