@@ -18,7 +18,8 @@ import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import StrikeThrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import Image from '@ckeditor/ckeditor5-image/src/image';
-import ImageEmbed from '@ckeditor/ckeditor5-image-via-url/src/imageviaurlembed';
+import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
+import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import Link from '@ckeditor/ckeditor5-link/src/link';
@@ -43,7 +44,8 @@ ClassicEditor.builtinPlugins = [
   StrikeThrough,
 	BlockQuote,  
   Image,
-  ImageEmbed,
+  SimpleUploadAdapter,
+  ImageUpload,
   ImageToolbar,
   ImageStyle,
 	Link,
@@ -63,12 +65,7 @@ ClassicEditor.defaultConfig = {
     ]
   },
   image: {
-    toolbar: [ 'imageTextAlternative', 'imageChange' ],
-    styles: [
-        'full',
-        'alignLeft',
-        'alignRight'
-    ]
+    toolbar: [ 'imageTextAlternative' ]
   },
   emoji: [
     { name: 'grin', text: '😀' },
@@ -144,13 +141,16 @@ ClassicEditor.defaultConfig = {
     { name: 'skull', text: '💀' },
 
     { name: 'poop', text: '💩' },
-    { name: 'clown', text: '🤡' },
-    { name: 'ghost', text: '👻' },
 
     { name: '100', text: '💯' },
   ],
 	toolbar: {
 		items: [
+      'link',
+      'imageUpload',
+      'mediaEmbed',
+      "emoji",
+      'blockQuote',
       "paragraph",
       "heading1",
       "heading2",
@@ -160,11 +160,6 @@ ClassicEditor.defaultConfig = {
       'strikeThrough',
       'bulletedList',
       'horizontalLine',
-      'link',
-      'imageViaUrlEmbed',
-      'mediaEmbed',
-      'blockQuote',
-      'emoji'
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
